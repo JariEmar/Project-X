@@ -35,7 +35,6 @@ namespace Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthorization();
 
             var swaggerOptions = new SwaggerSettings();
             Configuration.GetSection(nameof(SwaggerSettings)).Bind(swaggerOptions);
@@ -48,6 +47,8 @@ namespace Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

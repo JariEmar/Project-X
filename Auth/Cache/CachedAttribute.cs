@@ -62,7 +62,7 @@ namespace Api.Cache
             }
         }
 
-        private string GenerateCacheKeyFromRequest(HttpRequest request)
+        private static string GenerateCacheKeyFromRequest(HttpRequest request)
         {
             var keyBuilder = new StringBuilder();
 

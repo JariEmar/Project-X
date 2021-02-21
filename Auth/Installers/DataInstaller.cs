@@ -11,13 +11,6 @@ namespace Api.Installers
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = @"Server=.\SQLEXPRESS;Database=Auth;Integrated Security=true";
-
-            //services.AddDbContext<DataContext>(
-            //    options => options.UseSqlServer(connectionString));
-
-
-            //services.AddScoped<DbContext, DataContext>();
             services.AddTransient<IPostsRepository, PostsRepository>();
             services.AddTransient<IPostsService, PostsService>();
 

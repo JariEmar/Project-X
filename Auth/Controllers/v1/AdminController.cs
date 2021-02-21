@@ -12,16 +12,9 @@ namespace Api.Controllers.v1
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly IResponseCacheService responseCacheService;
-        private readonly IMapper mapper;
 
-
-        public AdminController(IResponseCacheService responseCacheService, IMapper mapper)
+        public AdminController()
         {
-            this.responseCacheService = responseCacheService;
-            this.mapper = mapper;
-
         }
-
     }
 }

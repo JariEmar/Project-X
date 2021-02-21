@@ -32,7 +32,7 @@ namespace Infrastructure.Repositories
 
         public async Task<Option<Post>> CreatePostAsync(Post postToCreate)
         {
-            var response = await cosmosStore.AddAsync(postToCreate);
+            await cosmosStore.AddAsync(postToCreate);
 
             return postToCreate;
         }

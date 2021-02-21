@@ -3,11 +3,10 @@ using Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Api.Helpers
 {
-    public class PaginationHelper
+    public static class PaginationHelper
     {
         public static PagedResponse<T> CreatePaginatedResponse<T>(PaginationFilter paginationFilter, List<T> data, Func<PaginationFilter, Uri> getPageUri) 
         {

@@ -1,21 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Domain.Exceptions
 {
-    public class OperationCancelledExceptionFilter : ExceptionFilterAttribute
+    public class OperationCancelledExceptionAttribute : ExceptionFilterAttribute
     {
-        public OperationCancelledExceptionFilter()
+        private readonly ILogger logger;
+
+        public OperationCancelledExceptionAttribute(ILogger logger)
         {
+            this.logger = logger;
         }
+
         public override void OnException(ExceptionContext context)
         {
             if (context.Exception is OperationCanceledException)
             {
-                //_logger.LogInformation("Request was cancelled");
+                logger.Information("Operation cancelled!");
                 context.ExceptionHandled = true;
                 context.Result = new StatusCodeResult(400);
             }

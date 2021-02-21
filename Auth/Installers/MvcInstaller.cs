@@ -48,11 +48,6 @@ namespace Api.Installers
             {
                 x.SwaggerDoc("v1", new OpenApiInfo { Title = "Auth API", Version = "v1" });
 
-                var security = new Dictionary<string, IEnumerable<string>>
-                {
-                    { "Bearer", new string[0] }
-                };
-
                 x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
@@ -91,7 +86,7 @@ namespace Api.Installers
 
             services.AddMvc(options =>
             {
-                options.Filters.Add<OperationCancelledExceptionFilter>();
+                options.Filters.Add<OperationCancelledExceptionAttribute>();
             });
         }
     }
