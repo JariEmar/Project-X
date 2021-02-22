@@ -144,6 +144,14 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[9.5.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[9.5.1, )"
+            },
             "Humanizer.Core": {
               "target": "Package",
               "version": "[2.5.16, )"

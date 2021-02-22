@@ -60,7 +60,6 @@ namespace Api.Controllers.v1
         [Route(ApiRoutes.Posts.Get)]
         public async Task<IActionResult> GetByIdAsync([FromRoute] string postId)
         {
-            logger.Error("Fuck what happend..?");
             var post = await postsService.GetPostByIdAsync(postId);
 
             return post.Match<IActionResult>(post =>
@@ -74,8 +73,6 @@ namespace Api.Controllers.v1
         [Route(ApiRoutes.Posts.Create)]
         public async Task<IActionResult> CreateAsync([FromBody] CreatePostRequest request)
         {
-            if (!ModelState.IsValid) return BadRequest();
-
             var post = mapper.Map<Post>(request);
             var result = await postsService.CreatePostAsync(post);
 
@@ -89,8 +86,6 @@ namespace Api.Controllers.v1
         [Route(ApiRoutes.Posts.Update)]
         public async Task<IActionResult> UpdateAsync([FromRoute] string postId, [FromBody] UpdatePostRequest request)
         {
-            if (!ModelState.IsValid) return BadRequest();
-
             var post = mapper.Map<Post>(request);
             post.Id = postId;
 

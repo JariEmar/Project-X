@@ -79,3 +79,6 @@ C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Serilog.Sinks.Elasticsearch.dll
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Serilog.Sinks.File.dll
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Serilog.Sinks.PeriodicBatching.dll
+C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll

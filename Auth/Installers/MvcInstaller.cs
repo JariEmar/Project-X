@@ -1,7 +1,10 @@
 ﻿using Api.Configurations;
+using Api.Filters;
 using Api.Mapping;
 using Domain.Exceptions;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -84,10 +87,20 @@ namespace Api.Installers
             services.AddAutoMapper(typeof(RequestToDomainProfile));
             services.AddAutoMapper(typeof(DomainToResponseProfile));
 
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
             services.AddMvc(options =>
             {
                 options.Filters.Add<OperationCancelledExceptionAttribute>();
+                options.Filters.Add<ValidationFilter>();
+            }).AddFluentValidation(configuration =>
+            {
+                configuration.RegisterValidatorsFromAssemblyContaining<Startup>();
             });
+
         }
     }
 }

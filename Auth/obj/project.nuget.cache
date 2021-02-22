@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "REZwrsRm/zzfHsMwRmu3WjpMHenF2Q9AHE2DGIpY+nhjY8NGrHMxmQLGm573p0Jvz69QQIDgDC44FQTrI7f48g==",
+  "dgSpecHash": "A+wEGDzbR44kPFflA2qYzJAC4tG1dAslkAlonGCNVOQXYeG0UG1qBmrKI8WCdFHpEFF9WeLKBRBXUfamKMiMAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\jari_\\source\\repos\\Auth\\Auth\\Api.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,9 @@
     "C:\\Users\\jari_\\.nuget\\packages\\cosmonaut\\2.11.3\\cosmonaut.2.11.3.nupkg.sha512",
     "C:\\Users\\jari_\\.nuget\\packages\\cosmonaut.extensions.microsoft.dependencyinjection\\2.3.0\\cosmonaut.extensions.microsoft.dependencyinjection.2.3.0.nupkg.sha512",
     "C:\\Users\\jari_\\.nuget\\packages\\elasticsearch.net\\7.8.1\\elasticsearch.net.7.8.1.nupkg.sha512",
+    "C:\\Users\\jari_\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",
+    "C:\\Users\\jari_\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.1\\fluentvalidation.aspnetcore.9.5.1.nupkg.sha512",
+    "C:\\Users\\jari_\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.1\\fluentvalidation.dependencyinjectionextensions.9.5.1.nupkg.sha512",
     "C:\\Users\\jari_\\.nuget\\packages\\humanizer.core\\2.5.16\\humanizer.core.2.5.16.nupkg.sha512",
     "C:\\Users\\jari_\\.nuget\\packages\\humanizer.core.uk\\2.5.16\\humanizer.core.uk.2.5.16.nupkg.sha512",
     "C:\\Users\\jari_\\.nuget\\packages\\languageext.core\\3.4.15\\languageext.core.3.4.15.nupkg.sha512",

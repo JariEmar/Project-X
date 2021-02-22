@@ -8,7 +8,6 @@ namespace Api.Contracts.v1.Requests
 {
     public class CreatePostRequest
     {
-        [Required]
         public string Name { get; set; }
 
         public List<TagRequest> Tags { get; set; }
