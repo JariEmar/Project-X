@@ -8,6 +8,7 @@ using Application.Services.Interfaces;
 using AutoMapper;
 using Domain.Common;
 using Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ using System.Threading.Tasks;
 namespace Api.Controllers.v1
 {
     [ApiController]
+    [Produces("application/json")]
     public class PostsController : ControllerBase
     {
         private readonly IPostsService postsService;
@@ -33,9 +35,17 @@ namespace Api.Controllers.v1
             this.logger = logger;
         }
 
+        /// <summary>
+        /// Gets all posts
+        /// </summary>
+        /// <param name="paginationQuery"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet]
         [Cached(CacheTimeouts.Posts.GetAll)]
         [Route(ApiRoutes.Posts.GetAll)]
+        [ProducesResponseType(typeof(PagedResponse<PostResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllAsync([FromQuery] PaginationQuery paginationQuery, CancellationToken cancellationToken)
         {
             logger.Information("Just before validating model");
@@ -55,9 +65,16 @@ namespace Api.Controllers.v1
             return Ok(result);
         }
 
+        /// <summary>
+        /// Gets post by id
+        /// </summary>
+        /// <param name="postId"></param>
+        /// <returns></returns>
         [HttpGet]
-        [Cached(CacheTimeouts.Posts.GetByGuid)]
         [Route(ApiRoutes.Posts.Get)]
+        [Cached(CacheTimeouts.Posts.GetByGuid)]
+        [ProducesResponseType(typeof(PostResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetByIdAsync([FromRoute] string postId)
         {
             var post = await postsService.GetPostByIdAsync(postId);
@@ -69,8 +86,15 @@ namespace Api.Controllers.v1
             }, NotFound());
         }
 
+        /// <summary>
+        /// Creates a post
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route(ApiRoutes.Posts.Create)]
+        [ProducesResponseType(typeof(PostResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreatePostRequest request)
         {
             var post = mapper.Map<Post>(request);
@@ -78,12 +102,21 @@ namespace Api.Controllers.v1
 
             return result.Match<IActionResult>(post =>
             {
-                return Created(UriHelper.GetPostUri(post.Id), post);
+                var postResponse = mapper.Map<PostResponse>(post);
+                return Created(UriHelper.GetPostUri(post.Id), postResponse);
             }, BadRequest());
         }
 
+        /// <summary>
+        /// Updates a post by id
+        /// </summary>
+        /// <param name="postId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route(ApiRoutes.Posts.Update)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> UpdateAsync([FromRoute] string postId, [FromBody] UpdatePostRequest request)
         {
             var post = mapper.Map<Post>(request);
@@ -99,9 +132,15 @@ namespace Api.Controllers.v1
             return Ok();
         }
 
-
+        /// <summary>
+        /// Deletes a post by id
+        /// </summary>
+        /// <param name="postId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route(ApiRoutes.Posts.Delete)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DeleteAsync([FromRoute] string postId)
         {
             var isDeleted = await postsService.DeletePostAsync(postId);

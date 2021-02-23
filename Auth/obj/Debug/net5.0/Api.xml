@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Controllers.v1.PostsController.GetAllAsync(Api.Contracts.v1.Requests.Queries.PaginationQuery,System.Threading.CancellationToken)">
+            <summary>
+            Gets all posts
+            </summary>
+            <param name="paginationQuery"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.v1.PostsController.GetByIdAsync(System.String)">
+            <summary>
+            Gets post by id
+            </summary>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.v1.PostsController.CreateAsync(Api.Contracts.v1.Requests.CreatePostRequest)">
+            <summary>
+            Creates a post
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.v1.PostsController.UpdateAsync(System.String,Api.Contracts.v1.Requests.UpdatePostRequest)">
+            <summary>
+            Updates a post by id
+            </summary>
+            <param name="postId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.v1.PostsController.DeleteAsync(System.String)">
+            <summary>
+            Deletes a post by id
+            </summary>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

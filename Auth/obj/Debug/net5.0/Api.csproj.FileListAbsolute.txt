@@ -82,3 +82,5 @@ C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Serilog.Sinks.PeriodicBat
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\jari_\source\repos\Auth\Auth\bin\Debug\net5.0\Api.xml
+C:\Users\jari_\source\repos\Auth\Auth\obj\Debug\net5.0\Api.xml
